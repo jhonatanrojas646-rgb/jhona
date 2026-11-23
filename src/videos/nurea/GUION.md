@@ -26,15 +26,19 @@
 - Mezcla probiótica: 60 mg, sin UFC y sin cepas. No se puede afirmar que iguala la dosis de los estudios.
 - Las especies coinciden (rhamnosus, reuteri, fermentum, acidophilus); las cepas exactas no se conocen.
 
-## Guion — borrador 1 (25 s, 90 palabras, 3,6 palabras/s). Idioma de la voz: pendiente.
+## Guion — borrador 2 (25 s, 89 palabras). Voz en español.
 | # | Voz | Lo que se ve |
 |---|---|---|
 | 1 | Ahora mismo, millones de bacterias viven dentro de ti. Y te están cuidando. | Mujer tranquila; la cámara entra a un mundo rosado lleno de personajes diminutos. |
 | 2 | Se llaman lactobacilos. Viven en tu flora vaginal y fabrican ácido láctico. | Lactobacilos (bastoncitos con cara) trabajando, soltando gotas brillantes. |
 | 3 | Ese ácido mantiene tu pH tan ácido como un yogur. | Medidor de pH discreto arriba: 3,5–4,5. |
-| 4 | Por suerte, ahí casi nada más logra crecer. Por desgracia, los antibióticos pueden dejarte sin ellos. | Microbios intrusos rebotan y se van; luego una ola arrasa y quedan pocos lactobacilos. |
+| 4 | Por suerte, ahí casi nada más logra crecer. Por desgracia, algunos antibióticos también pueden reducirlos. | Microbios intrusos rebotan y se van; luego una ola arrasa y quedan pocos lactobacilos. |
 | 5 | Fíjate: es como un jardín. Si las plantas buenas lo ocupan todo, la maleza no tiene dónde. | El mundo se vuelve jardín: flores llenan el suelo, la maleza no encuentra hueco. |
 | 6 | Nurea trae cuatro lactobacilos en una gomita de piña, para ayudar a mantener ese equilibrio. | Gomita de piña; de ella salen cuatro lactobacilos que ocupan su lugar. |
 | 7 | Dos al día. Tu jardín, bien cuidado. | Frasco Nurea y el jardín lleno. |
 
-Pendiente de fuente: línea 3 (pH del yogur) y línea 4 (antibióticos reducen lactobacilos).
+Fuentes de las líneas 3 y 4:
+- Yogur: pH típico 4,0–4,6; la norma de EE. UU. exige 4,6 o menos. https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-131/subpart-B/section-131.200
+- Antibióticos: resultado mixto, depende del fármaco. Eritromicina bajó ~40 % los lactobacilos en 48 h
+  (https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-017-0999-x/figures/3); con metronidazol/clindamicina
+  subieron en dos tercios de las mujeres (https://pmc.ncbi.nlm.nih.gov/articles/PMC7892685/). Por eso la línea dice "algunos".
