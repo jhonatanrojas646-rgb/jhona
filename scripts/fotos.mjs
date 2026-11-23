@@ -7,7 +7,7 @@ const chromiumOptions = { gl: process.env.GL || "swangle" };
 const browserExecutable = process.env.CHROME || undefined;
 const inputProps = { mute: true };
 const serveUrl = await bundle({ entryPoint: path.resolve("src/index.ts"), publicDir: path.resolve("public") });
-const composition = await selectComposition({ browserExecutable, serveUrl, id: "Alejandro", chromiumOptions, inputProps });
+const composition = await selectComposition({ browserExecutable, serveUrl, id: process.env.COMP || "Alejandro", chromiumOptions, inputProps });
 const onBrowserLog = (l) => { if (l.type === "error") console.log("[error]", l.text.slice(0, 300)); };
 for (const f of frames.split(",").map(Number)) {
   const t0 = Date.now();
