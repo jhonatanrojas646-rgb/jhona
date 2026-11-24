@@ -9,22 +9,22 @@ import { grassHD, rep } from "../alejandro/paint";
 import * as D from "./draw";
 import { SHOTS, camAt, T, HERO, GUMMY, WEED, BOTTLE, smooth, clamp01, lerp } from "./story";
 
-const rng = (seed: number) => () => { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
-const backOut = (x: number) => { const u = clamp01(x), c = 1.70158; return 1 + (c + 1) * (u - 1) ** 3 + c * (u - 1) ** 2; };
+export const rng = (seed: number) => () => { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+export const backOut = (x: number) => { const u = clamp01(x), c = 1.70158; return 1 + (c + 1) * (u - 1) ** 3 + c * (u - 1) ** 2; };
 
 const GRAD = (() => {
   const t = new THREE.DataTexture(new Uint8Array([150, 150, 150, 255, 205, 205, 205, 255, 255, 255, 255, 255]), 3, 1, THREE.RGBAFormat);
   t.minFilter = t.magFilter = THREE.NearestFilter; t.needsUpdate = true; return t;
 })();
-const toon = (color: string, map?: THREE.Texture) => new THREE.MeshToonMaterial({ color, gradientMap: GRAD, map: map ?? null });
-const cardMat = (t: THREE.Texture) => new THREE.MeshBasicMaterial({ map: t, alphaTest: 0.5, alphaToCoverage: true, side: THREE.DoubleSide });
-const softMat = (t: THREE.Texture) => new THREE.MeshBasicMaterial({ map: t, transparent: true, depthWrite: false, side: THREE.DoubleSide });
+export const toon = (color: string, map?: THREE.Texture) => new THREE.MeshToonMaterial({ color, gradientMap: GRAD, map: map ?? null });
+export const cardMat = (t: THREE.Texture) => new THREE.MeshBasicMaterial({ map: t, alphaTest: 0.5, alphaToCoverage: true, side: THREE.DoubleSide });
+export const softMat = (t: THREE.Texture) => new THREE.MeshBasicMaterial({ map: t, transparent: true, depthWrite: false, side: THREE.DoubleSide });
 
 const _m = new THREE.Matrix4(), _p = new THREE.Vector3(), _s = new THREE.Vector3(), _q = new THREE.Quaternion(), _qr = new THREE.Quaternion();
 const Z = new THREE.Vector3(0, 0, 1), ID = new THREE.Quaternion();
 
 /** muchas tarjetas iguales en una sola malla */
-class Cards {
+export class Cards {
   mesh: THREE.InstancedMesh; n = 0; flat: boolean;
   constructor(parent: THREE.Object3D, t: THREE.Texture, w: number, h: number, cap: number, o: { soft?: boolean; foot?: number; flat?: boolean; order?: number } = {}) {
     const geo = new THREE.PlaneGeometry(w, h);
@@ -43,11 +43,11 @@ class Cards {
   end() { this.mesh.count = this.n; this.mesh.instanceMatrix.needsUpdate = true; }
 }
 /** una tarjeta suelta en alta resolución */
-const card = (parent: THREE.Object3D, t: THREE.Texture, w: number, h: number, foot = 0) => {
+export const card = (parent: THREE.Object3D, t: THREE.Texture, w: number, h: number, foot = 0) => {
   const geo = new THREE.PlaneGeometry(w, h); geo.translate(0, h * (0.5 - foot), 0);
   const m = new THREE.Mesh(geo, cardMat(t)); m.layers.set(NOINK); m.renderOrder = 2; m.frustumCulled = false; parent.add(m); return m;
 };
-const sky = (parent: THREE.Object3D, stops: [number, string][]) => {
+export const sky = (parent: THREE.Object3D, stops: [number, string][]) => {
   const t = D.tex(8, 512, (g) => { const gr = g.createLinearGradient(0, 0, 0, 512); for (const [a, c] of stops) gr.addColorStop(a, c); g.fillStyle = gr; g.fillRect(0, 0, 8, 512); });
   const m = new THREE.Mesh(new THREE.SphereGeometry(800, 24, 16), new THREE.MeshBasicMaterial({ map: t, side: THREE.BackSide, fog: false, depthWrite: false }));
   m.layers.set(NOINK); m.renderOrder = -10; m.frustumCulled = false; parent.add(m); return m;
